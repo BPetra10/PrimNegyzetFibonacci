@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="utf-8">
+        <title>PrímNégyzetFibonacci</title>
+    </head>
+    <body>
+        <script>   
+           
+            var hanyat = (function ask(){
+                var n = prompt("Hány számot akarsz kiíratni?");
+                return isNaN(n) || +n < 1 ? ask() : n;
+                }());
+            
+            
+            var prim = true;
+            var szamlalo = 0;
+            var szam = 1;
+            
+            document.write("<h1>A prímszámok kiírva:</h1>");
+            do
+            {
+                szam++;
+                prim = true;
+                
+                for (var j = 2; j <= Math.sqrt(szam); j++)
+                {
+                if (szam % j == 0)
+                {
+                prim = false;
+                }
+                }   
+                if(prim==true)
+                        {
+                            
+                            document.write("<p>"+szam+"</p>");
+                            szamlalo++;
+                        }
+            
+            }
+            while(szamlalo!=hanyat)
+            
+            szamlalo=0;
+            szam=0;
+            
+            document.write("<h1>A négyzetszámok kiírva:</h1>");
+            do
+                {
+                    document.write("<p>"+Math.pow(szam,2)+"</p>");
+                    szam++;
+                    szamlalo++;
+                }
+            while(szamlalo!=hanyat)
+            
+                var a = 0;
+                var b = 1;
+            
+            document.write("<h1>A Fibonacci számok kiírva:</h1>");
+            for(var i=0;i<hanyat;i++)
+                {
+                    document.write("<p>"+a+"</p>");
+                    var csere = a;
+                    a = b;
+                    b = csere + b;
+                } 
+        </script>
+        
+        <style>
+            body
+            {
+                background-color: lightblue;
+            }
+            h1
+            {
+                font-family: fantasy;
+                font-size: 30px;
+                text-align: center;
+                color: crimson;
+            }
+            p
+            {
+                text-align: center;
+                font-size: 15px;
+                font-family: cursive;
+            }
+        </style>
+    </body>
+</html>
